@@ -1,0 +1,245 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0
+}
+
+p {
+	margin: 0
+}
+
+* {
+	box-sizing: border-box
+}
+
+.cabecera {
+	background-image: linear-gradient(to bottom, purple 0%, transparent 100%);
+}
+
+/*
+	Modificación solo para "Contacto"
+*/
+#contacto .cabecera {
+	background-color: red
+}
+
+/*
+	Modificación solo para "Productos"
+*/
+#productos .cabecera {
+	background-color: aqua
+}
+
+.contenedor_cabecera {
+	width: 100%;
+	margin: auto;
+	display: flex
+}
+
+.contenedor_cabecera .logo {
+	width: 60px;
+}
+
+
+.contenedor_cabecera img {
+	width: 100%;
+	/* Hago que se ajuste al ancho del contenedor */
+	/* 100% para que no se me deforme la imagen */
+}
+
+.contenedor {
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.menu {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.menu ul {
+	display: flex;
+	column-gap: 10px;
+}
+
+.menu a {
+	color: white;
+	text-decoration: none;
+}
+
+
+.grid {
+	width: 100%;
+	margin: auto;
+	margin-top: 100px;
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	grid-template-rows: repeat(5, 200px);
+	/*
+						100px 100px 100px 100px 100px
+	*/
+	grid-template-areas: 'albondigas albondigas'
+							 'hamburguesa hamburguesa'
+							 'fideos fideos'
+							 'roscas roscas'
+							 'canelones canelones'
+	
+}
+
+.grid > div {
+	display: flex;
+	align-items: stretch; /*vertical*/
+	justify-content: center; /* horizonal */
+	background-color: black
+}
+
+.grid a {
+	color: white;
+	font-size: 30px;
+	text-decoration: none;
+	text-transform: uppercase;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	transition: all 0.2s ease-in-out;
+}
+
+.grid a:hover {
+	opacity: 0.7 /*0 - 1*/;
+}
+
+.grid1 {
+	grid-area: albondigas
+}
+
+.grid1 a {
+	background-image: url('../imagenes/albondigas.jpg');
+}
+
+.grid2 {
+	grid-area: hamburguesa
+}
+
+.grid2 a {
+	background-image: url('../imagenes/hamburguesa.jpg');
+}
+
+.grid3 {
+	grid-area: fideos
+}
+
+.grid3 a {
+	background-image: url('../imagenes/fideos.jpg');
+}
+
+.grid4 {
+	grid-area: roscas
+}
+
+.grid4 a {
+	background-image: url('../imagenes/roscas.jpg');
+}
+
+.grid5 {
+	grid-area: canelones
+}
+
+.grid5 a {
+	background-image: url('../imagenes/canelones.jpg');
+}
+
+
+
+.flex {
+	width: 100%;
+	margin: auto;
+	margin-top: 70px;
+}
+
+.flex h1 {
+	text-align: center;
+}
+
+.flex .item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	column-gap: 30px; /* espacios entre columnas (para elementos hijos) */
+	margin-top: 40px; /* espacios entre filas (es un margin, porque no es un elemento flexible) */
+}
+
+.flex .img {
+	width: 100%
+}
+
+.flex img {
+	transition: all 0.2s ease-in-out;
+	width: 100%;
+}
+
+.flex img:hover {
+	transform: rotate(15deg) scale(1.2);
+}
+
+.flex .impar img:hover {
+	transform: rotate(-15deg) scale(1.2);
+}
+
+.flex .text {
+	margin-top: 30px;
+	width: 100%;
+}
+
+
+
+
+@media (min-width: 730px){
+
+	.flex .item {
+		flex-wrap: nowrap;
+	}
+
+	.flex .img {
+		width: 30%
+	}
+
+	.flex .text {
+		flex: 1;
+		width: auto;
+		margin: 0
+	}
+
+	.flex .item.impar .img {
+		order: 1
+	}
+
+
+	.grid {
+		grid-template-rows: repeat(4, 200px);
+		/*
+							100px 100px 100px 100px
+		*/
+		grid-template-areas: 'albondigas albondigas'
+						 'hamburguesa fideos'
+						 'hamburguesa roscas'
+						 'canelones canelones'
+	}
+
+}
